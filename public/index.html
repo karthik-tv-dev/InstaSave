@@ -4,8 +4,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Download Instagram media you own or are authorized to save.">
-  <title>InstaSave — Instagram Media Downloader</title>
+  <meta name="theme-color" content="#10101b">
+  <meta name="description" content="Use InstaSave to retrieve supported Instagram Reels, photos, and post media you own or are authorized to download.">
+  <title>InstaSave — Instagram Reels, Photos & Post Downloader</title>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -14,124 +15,318 @@
       <span class="brand-icon">↓</span>
       <span>insta<span class="brand-accent">save</span></span>
     </a>
+
+    <nav class="top-nav" aria-label="Main navigation">
+      <a href="#how-it-works">How it works</a>
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
     <span class="top-note">
       <span class="status-dot"></span>
-      Media Downloader
+      Simple media downloader
     </span>
   </header>
 
   <main>
     <section class="hero">
-      <div class="eyebrow">
-        <span class="sparkle">✦</span>
-        INSTAGRAM MEDIA DOWNLOADER
-      </div>
+      <div class="hero-glow hero-glow-one"></div>
+      <div class="hero-glow hero-glow-two"></div>
 
-      <h1>Your links.<br><span class="gradient-text">Your media.</span></h1>
-
-      <p class="hero-copy">
-        Paste an Instagram Reel, photo, or post link to retrieve
-        media you own or are authorized to download.
-      </p>
-
-      <form id="urlForm" class="url-form">
-        <label class="sr-only" for="instagramUrl">
-          Instagram post or Reel URL
-        </label>
-        <input
-          id="instagramUrl"
-          name="url"
-          type="url"
-          placeholder="Paste Instagram post or Reel link here…"
-          autocomplete="url"
-          required
-        >
-        <button id="inspectButton" class="primary-button" type="submit">
-          Get Media
-        </button>
-      </form>
-
-      <p id="statusText" class="status-text" role="status" aria-live="polite">
-        Paste an Instagram link to get started.
-      </p>
-
-      <div id="resultPanel" class="result-panel" hidden>
-        <div class="result-heading">
-          <span id="kindPill" class="count-pill">Instagram media</span>
-          <a
-            id="openLink"
-            class="view-button"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Open on Instagram ↗</a>
+      <div class="hero-content">
+        <div class="eyebrow">
+          <span class="sparkle">✦</span>
+          YOUR INSTAGRAM MEDIA TOOL
         </div>
 
-        <div id="instagramPreview" class="embed-wrap" hidden>
-          <iframe
-            id="instagramEmbed"
-            title="Instagram post preview"
-            loading="lazy"
-            allow="encrypted-media; picture-in-picture"
-            referrerpolicy="strict-origin-when-cross-origin"
-          ></iframe>
+        <h1>Save the moments.<br><span class="gradient-text">Keep them close.</span></h1>
+
+        <p class="hero-copy">
+          Retrieve supported Instagram Reels, photos, and post media
+          from a link. Quick to use, simple to understand.
+        </p>
+
+        <div class="download-box">
+          <div class="download-box-label">
+            <span class="link-symbol">↗</span>
+            <span>PASTE YOUR INSTAGRAM LINK</span>
+          </div>
+
+          <form id="urlForm" class="url-form">
+            <label class="sr-only" for="instagramUrl">
+              Instagram post, photo, or Reel URL
+            </label>
+            <input
+              id="instagramUrl"
+              name="url"
+              type="url"
+              placeholder="https://www.instagram.com/reel/..."
+              autocomplete="url"
+              required
+            >
+            <button id="inspectButton" class="primary-button" type="submit">
+              <span>Get Media</span>
+              <span aria-hidden="true">→</span>
+            </button>
+          </form>
+
+          <p id="statusText" class="status-text" role="status" aria-live="polite">
+            Paste a supported Instagram link to get started.
+          </p>
+
+          <div class="privacy-note">
+            <span aria-hidden="true">⌑</span>
+            Use links to content you own or are authorized to save.
+          </div>
         </div>
 
-        <div id="mediaResults" class="media-results"></div>
+        <div id="resultPanel" class="result-panel" hidden>
+          <div class="result-heading">
+            <span id="kindPill" class="count-pill">Instagram media</span>
+            <a
+              id="openLink"
+              class="view-button"
+              target="_blank"
+              rel="noopener noreferrer"
+            >Open on Instagram ↗</a>
+          </div>
 
-        <p class="helper-note">
-          When the media API returns downloadable media, its download
-          link will appear here.
-        </p>
-      </div>
+          <div id="instagramPreview" class="embed-wrap" hidden>
+            <iframe
+              id="instagramEmbed"
+              title="Instagram post preview"
+              loading="lazy"
+              allow="encrypted-media; picture-in-picture"
+              referrerpolicy="strict-origin-when-cross-origin"
+            ></iframe>
+          </div>
 
-      <div class="notice">
-        <span class="notice-icon">ⓘ</span>
-        <p>
-          <strong>Note:</strong> A working media API is required to retrieve
-          downloadable files from Instagram links.
-        </p>
+          <div id="mediaResults" class="media-results"></div>
+
+          <p class="helper-note">
+            Available download options depend on the media returned by the API.
+          </p>
+        </div>
+
+        <div class="supported-types" aria-label="Supported media types">
+          <span><span class="type-icon">▶</span> Reels</span>
+          <span><span class="type-icon">▧</span> Photos</span>
+          <span><span class="type-icon">▤</span> Posts</span>
+          <span><span class="type-icon">▱</span> Carousels</span>
+        </div>
+
+        <div class="notice">
+          <span class="notice-icon">ⓘ</span>
+          <p>
+            Availability depends on Instagram access, the link, and the
+            configured media API. Private or restricted content may not work.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section class="steps">
+    <section class="content-section media-section" id="media-types">
       <div class="section-heading">
-        <div>
-          <p class="section-kicker">SIMPLE BY DESIGN</p>
-          <h2>How it works</h2>
-        </div>
+        <p class="section-kicker">ONE TOOL, DIFFERENT FORMATS</p>
+        <h2>What can you retrieve?</h2>
+        <p class="section-description">
+          Paste a supported post link and see which media options are available.
+        </p>
+      </div>
+
+      <div class="media-type-grid">
+        <article class="media-type-card">
+          <div class="media-type-icon reel-icon">▶</div>
+          <h3>Instagram Reels</h3>
+          <p>Retrieve video media from supported public Reel links when available.</p>
+        </article>
+
+        <article class="media-type-card">
+          <div class="media-type-icon photo-icon">▧</div>
+          <h3>Instagram Photos</h3>
+          <p>Find downloadable photo options returned for a supported post.</p>
+        </article>
+
+        <article class="media-type-card">
+          <div class="media-type-icon post-icon">▤</div>
+          <h3>Video Posts</h3>
+          <p>Check supported video posts for available media download links.</p>
+        </article>
+
+        <article class="media-type-card">
+          <div class="media-type-icon carousel-icon">▱</div>
+          <h3>Carousel Posts</h3>
+          <p>See the media items returned for posts containing multiple items.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="content-section how-section" id="how-it-works">
+      <div class="section-heading">
+        <p class="section-kicker">THREE SIMPLE STEPS</p>
+        <h2>How InstaSave works</h2>
+        <p class="section-description">
+          No complicated process. Start with a link to supported content.
+        </p>
       </div>
 
       <div class="step-grid">
         <article class="step-card">
           <span class="step-number">01</span>
-          <h3>Paste a link</h3>
-          <p>Enter a supported Instagram post, photo, or Reel URL.</p>
+          <div class="step-illustration">↗</div>
+          <h3>Copy the post link</h3>
+          <p>Open Instagram, choose the post or Reel, and copy its link.</p>
         </article>
 
         <article class="step-card">
           <span class="step-number">02</span>
-          <h3>Get media</h3>
-          <p>The server sends the link to your configured media API.</p>
+          <div class="step-illustration">⌕</div>
+          <h3>Paste it above</h3>
+          <p>Paste the URL into InstaSave and select Get Media.</p>
         </article>
 
         <article class="step-card">
           <span class="step-number">03</span>
-          <h3>Download</h3>
-          <p>Choose a returned media link to download the available file.</p>
+          <div class="step-illustration">↓</div>
+          <h3>Choose your media</h3>
+          <p>If downloadable media is returned, choose an available download option.</p>
         </article>
       </div>
     </section>
+
+    <section class="feature-section" id="features">
+      <div class="feature-copy">
+        <p class="section-kicker">MADE TO BE STRAIGHTFORWARD</p>
+        <h2>A simpler way to access supported media</h2>
+        <p>
+          InstaSave puts the link field, available media, and download options
+          together in one place. The results depend on what the connected API
+          can retrieve for your link.
+        </p>
+
+        <ul class="feature-list">
+          <li><span>✓</span> One place for supported Instagram links</li>
+          <li><span>✓</span> Clear results and available media options</li>
+          <li><span>✓</span> Works in a modern desktop or mobile browser</li>
+          <li><span>✓</span> No need to upload a local file</li>
+        </ul>
+      </div>
+
+      <div class="feature-visual" aria-hidden="true">
+        <div class="visual-orbit orbit-one"></div>
+        <div class="visual-orbit orbit-two"></div>
+        <div class="visual-card">
+          <div class="visual-card-top">
+            <span class="visual-dot"></span>
+            <span class="visual-dot"></span>
+            <span class="visual-dot"></span>
+          </div>
+          <div class="visual-link-icon">↗</div>
+          <div class="visual-line visual-line-long"></div>
+          <div class="visual-line visual-line-short"></div>
+          <div class="visual-download">
+            <span>↓</span>
+            <div>
+              <strong>Media ready</strong>
+              <small>When available</small>
+            </div>
+            <span class="visual-check">✓</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-section faq-section" id="faq">
+      <div class="section-heading">
+        <p class="section-kicker">GOOD TO KNOW</p>
+        <h2>Frequently asked questions</h2>
+        <p class="section-description">
+          A few useful details before you get started.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>How do I use InstaSave?</summary>
+          <p>
+            Copy a supported Instagram post or Reel URL, paste it into the
+            field at the top, and select Get Media. If media is returned,
+            choose one of the available download options.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Why is no media showing for my link?</summary>
+          <p>
+            The post may be private, restricted, unavailable, or unsupported.
+            Instagram may also change how links can be accessed. Check that
+            the URL is correct and try again.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I download private Instagram content?</summary>
+          <p>
+            InstaSave is not intended to bypass privacy controls or access
+            restrictions. Use only content you own or are authorized to save.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Where are the downloaded files saved?</summary>
+          <p>
+            This depends on your browser and device. Most browsers save
+            downloaded files to their default Downloads folder unless you
+            choose another location.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Does every Instagram link work?</summary>
+          <p>
+            No. Supported formats and availability depend on the Instagram
+            link and the connected media API. Some links may not return
+            downloadable files.
+          </p>
+        </details>
+
+        <details class="faq-item">
+          <summary>Can I save someone else's content?</summary>
+          <p>
+            Only save content when you have permission or another lawful
+            basis to do so. Respect creators' rights, privacy, and the
+            applicable platform terms.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <section class="bottom-cta">
+      <div class="bottom-cta-icon">↓</div>
+      <h2>Ready to get started?</h2>
+      <p>Paste a supported Instagram link in the box above.</p>
+      <a href="#" class="back-to-top" id="backToTop">Back to the top ↑</a>
+    </section>
   </main>
 
-  <footer>
+  <footer class="site-footer">
     <a class="brand footer-brand" href="/">
       <span class="brand-icon">↓</span>
       <span>insta<span class="brand-accent">save</span></span>
     </a>
+    <p>Independent tool. Not affiliated with Instagram or Meta.</p>
     <p>Respect creator rights, privacy, and platform terms.</p>
   </footer>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script>
+    document.getElementById("backToTop")?.addEventListener("click", function (event) {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      document.getElementById("instagramUrl")?.focus({ preventScroll: true });
+    });
+  </script>
   <script src="/app.js" defer></script>
 </body>
 </html>
