@@ -1,0 +1,137 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Download Instagram media you own or are authorized to save.">
+  <title>InstaSave — Instagram Media Downloader</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="InstaSave home">
+      <span class="brand-icon">↓</span>
+      <span>insta<span class="brand-accent">save</span></span>
+    </a>
+    <span class="top-note">
+      <span class="status-dot"></span>
+      Media Downloader
+    </span>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">
+        <span class="sparkle">✦</span>
+        INSTAGRAM MEDIA DOWNLOADER
+      </div>
+
+      <h1>Your links.<br><span class="gradient-text">Your media.</span></h1>
+
+      <p class="hero-copy">
+        Paste an Instagram Reel, photo, or post link to retrieve
+        media you own or are authorized to download.
+      </p>
+
+      <form id="urlForm" class="url-form">
+        <label class="sr-only" for="instagramUrl">
+          Instagram post or Reel URL
+        </label>
+        <input
+          id="instagramUrl"
+          name="url"
+          type="url"
+          placeholder="Paste Instagram post or Reel link here…"
+          autocomplete="url"
+          required
+        >
+        <button id="inspectButton" class="primary-button" type="submit">
+          Get Media
+        </button>
+      </form>
+
+      <p id="statusText" class="status-text" role="status" aria-live="polite">
+        Paste an Instagram link to get started.
+      </p>
+
+      <div id="resultPanel" class="result-panel" hidden>
+        <div class="result-heading">
+          <span id="kindPill" class="count-pill">Instagram media</span>
+          <a
+            id="openLink"
+            class="view-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Open on Instagram ↗</a>
+        </div>
+
+        <div id="instagramPreview" class="embed-wrap" hidden>
+          <iframe
+            id="instagramEmbed"
+            title="Instagram post preview"
+            loading="lazy"
+            allow="encrypted-media; picture-in-picture"
+            referrerpolicy="strict-origin-when-cross-origin"
+          ></iframe>
+        </div>
+
+        <div id="mediaResults" class="media-results"></div>
+
+        <p class="helper-note">
+          When the media API returns downloadable media, its download
+          link will appear here.
+        </p>
+      </div>
+
+      <div class="notice">
+        <span class="notice-icon">ⓘ</span>
+        <p>
+          <strong>Note:</strong> A working media API is required to retrieve
+          downloadable files from Instagram links.
+        </p>
+      </div>
+    </section>
+
+    <section class="steps">
+      <div class="section-heading">
+        <div>
+          <p class="section-kicker">SIMPLE BY DESIGN</p>
+          <h2>How it works</h2>
+        </div>
+      </div>
+
+      <div class="step-grid">
+        <article class="step-card">
+          <span class="step-number">01</span>
+          <h3>Paste a link</h3>
+          <p>Enter a supported Instagram post, photo, or Reel URL.</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-number">02</span>
+          <h3>Get media</h3>
+          <p>The server sends the link to your configured media API.</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-number">03</span>
+          <h3>Download</h3>
+          <p>Choose a returned media link to download the available file.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a class="brand footer-brand" href="/">
+      <span class="brand-icon">↓</span>
+      <span>insta<span class="brand-accent">save</span></span>
+    </a>
+    <p>Respect creator rights, privacy, and platform terms.</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

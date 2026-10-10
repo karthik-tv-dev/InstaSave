@@ -1,0 +1,17 @@
+{
+  "name": "insta-media-downloader",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A compliant starter for downloading media from an Instagram professional account you are authorized to access.",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": { "node": ">=18" },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "helmet": "^8.0.0",
+    "express-rate-limit": "^7.5.0"
+  }
+}
