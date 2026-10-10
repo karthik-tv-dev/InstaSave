@@ -265,5 +265,5 @@ app.get("/api/download-media", async (req, res) => {
 
 
 app.listen(PORT, () => {
-  console.log("InstaSave running at http://localhost:" + PORT);
+  console.log(`InstaSave running on port ${PORT}`);
 });
